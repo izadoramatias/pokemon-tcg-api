@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+}
+
+html::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+html::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+html::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+}
+
+.container,
+.content {
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    background-color: #121214;
+}
+
+.content {
+    width: 80%;
+    padding: 20px 0;
+    display: flex;
+    gap: 30px calc(100% / 19);
+    flex-wrap: wrap;
+}
+
+.content .pokeball__bg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.content .pokeball__bg img {
+    height: 24rem;
+    width: 24rem;
+}
+
+.content .card{
+    width: 226px;
+    height: 320px;
+    position: relative;
+    overflow-y: hidden;
+}
+
+.content .card:hover > .content__card {
+    backdrop-filter: blur(.9px);
+    transform: translateY(0);
+    pointer-events: none;
+
+}
+
+.content .card .poke__image img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.content .card .content__card {
+    position: absolute;
+    background-image: linear-gradient(
+        to bottom,
+        hsla(0, 0%, 0%, 0) 0%,
+        hsla(0, 0%, 0%, 0.009) 11.7%,
+        hsla(0, 0%, 0%, 0.034) 22.1%,
+        hsla(0, 0%, 0%, 0.072) 31.2%,
+        hsla(0, 0%, 0%, 0.123) 39.4%,
+        hsla(0, 0%, 0%, 0.182) 46.6%,
+        hsla(0, 0%, 0%, 0.249) 53.1%,
+        hsla(0, 0%, 0%, 0.320) 58.9%,
+        hsla(0, 0%, 0%, 0.394) 64.3%,
+        hsla(0, 0%, 0%, 0.468) 69.3%,
+        hsla(0, 0%, 0%, 0.540) 74.1%,
+        hsla(0, 0%, 0%, 0.607) 78.8%,
+        hsla(0, 0%, 0%, 0.668) 83.6%,
+        hsla(0, 0%, 0%, 0.721) 88.7%,
+        hsla(0, 0%, 0%, 0.762) 94.1%,
+        hsla(0, 0%, 0%, 0.790) 100%
+      );;
+    height: 100%;
+    width: 100%;
+    color: #fcfcfc;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    transform: translateY(200%);
+    transition: .3s;
+}
+
+.content .card .content__card .poke__name{
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: .9px;
+    word-wrap: break-word;
+    text-align: center;
+    line-height: 2.5rem;
+    text-transform: uppercase;
+}
+
+.content .card .content__card .poke__type {
+    font-size: .9rem;
+    font-weight: 300;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+.container .loading {
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, .6);
+
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+@keyframes load {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.container .loading img {
+    height: 80px;
+    width: auto;
+    animation: load 2s linear infinite;
+}
+
+.container .loading.hide-loading {
+    display: none;
+}
+
+.container .expanded__card {
+    position: fixed;
+    z-index: 5;
+    background: rgba(0, 0, 0, .6);
+    width: 100vw;
+    height: 100%;
+
+    display: none;
+}
+
+.container .expanded__card.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .expanded__card img {
+    height: 90vh;
+}
+
+.container .expanded__card .close__card {
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    padding: 5px;
+}
+
+.container .expanded__card .close__card img {
+    width: 100%;
+    height: 100%;
+}
