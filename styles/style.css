@@ -203,6 +203,5 @@ html::-webkit-scrollbar-thumb
     .container .expanded__card img {
         height: auto;
         max-width: 80%;
-        /* width: auto; */
     }
 }
