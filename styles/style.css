@@ -42,8 +42,10 @@ html::-webkit-scrollbar-thumb
     width: 80%;
     padding: 20px 0;
     display: flex;
-    gap: 30px calc(100% / 19);
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
+    gap: 30px calc(100% / 19);
 }
 
 .content .pokeball__bg {
@@ -195,4 +197,12 @@ html::-webkit-scrollbar-thumb
 .container .expanded__card .close__card img {
     width: 100%;
     height: 100%;
+}
+
+@media (max-width: 768px) {
+    .container .expanded__card img {
+        height: auto;
+        max-width: 80%;
+        /* width: auto; */
+    }
 }
